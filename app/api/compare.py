@@ -17,8 +17,8 @@ def get_metrics(symbol):
     if hist.empty:
         return None
 
-    price = round(hist["Close"][-1], 2)
-    return_1y = round(((hist["Close"][-1] / hist["Close"][0]) - 1) * 100, 2)
+    price = round(hist["Close"].iloc[-1], 2)
+    return_1y = round(((hist["Close"].iloc[-1] / hist["Close"].iloc[0]) - 1) * 100, 2)
 
     roe = round(info.get("returnOnEquity", 0) * 100, 2) if info.get("returnOnEquity") else 0
     debt = round(info.get("debtToEquity", 0), 2)
